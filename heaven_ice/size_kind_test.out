@@ -1,0 +1,19 @@
+================================================================================
+Test: mask
+SizeKind(SizeKind::Byte).mask() -> '255'
+SizeKind(SizeKind::Word).mask() -> '65535'
+SizeKind(SizeKind::Long).mask() -> '4294967295'
+
+================================================================================
+Test: trim
+SizeKind(SizeKind::Byte).trim(0xf) -> '15'
+SizeKind(SizeKind::Byte).trim(0xff) -> '-1'
+SizeKind(SizeKind::Byte).trim(0x100) -> '0'
+SizeKind(SizeKind::Word).trim(0xf) -> '15'
+SizeKind(SizeKind::Word).trim(0xff) -> '255'
+SizeKind(SizeKind::Word).trim(0x100) -> '256'
+SizeKind(SizeKind::Word).trim(0x7fff) -> '32767'
+SizeKind(SizeKind::Word).trim(0xffff) -> '-1'
+SizeKind(SizeKind::Word).trim(0x8000) -> '-32768'
+SizeKind(SizeKind::Word).trim(0x10000) -> '0'
+

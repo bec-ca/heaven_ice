@@ -1,0 +1,105 @@
+ORI to CCR,    0000 0000 0011 1100
+ORI to SR,     0000 0000 0111 1100
+ORI,           0000 0000 S:2 EA1:6
+ANDI to CCR,   0000 0010 0011 1100
+ANDI to SR,    0000 0010 0111 1100
+ANDI,          0000 0010 S:2 EA1:6
+SUBI,          0000 0100 S:2 EA1:6
+ADDI,          0000 0110 S:2 EA1:6
+EORI to CCR,   0000 1010 0011 1100
+EORI to SR,    0000 1010 0111 1100
+EORI,          0000 1010 S:2 EA1:6
+CMPI,          0000 1100 S:2 EA1:6
+BTST,          0000 1000 00 EA1:6
+BCHG,          0000 1000 01 EA1:6
+BCLR,          0000 1000 10 EA1:6
+BSET,          0000 1000 11 EA1:6
+MOVEP,         0000 Dn:3 1 D:1 S:1 001 An:3
+BTST,          0000 Dn:3 100 EA1:6
+BCHG,          0000 Dn:3 101 EA1:6
+BCLR,          0000 Dn:3 110 EA1:6
+BSET,          0000 Dn:3 111 EA1:6
+MOVE,          00 SM:2 EA2:6 EA1:6
+MOVE from SR,  0100 0000 11 EA1:6
+MOVE to CCR,   0100 0100 11 EA1:6
+MOVE to SR,    0100 0110 11 EA1:6
+NEGX,          0100 0000 S:2 EA1:6
+CLR,           0100 0010 S:2 EA1:6
+NEG,           0100 0100 S:2 EA1:6
+NOT,           0100 0110 S:2 EA1:6
+EXT,           0100 1000 1 S:1 000 Dn:3
+NBCD,          0100 1000 00 EA1:6
+SWAP,          0100 1000 0100 0 Dn:3
+PEA,           0100 1000 01 EA1:6
+ILLEGAL,       0100 1010 1111 1100
+TAS,           0100 1010 11 EA1:6
+TST,           0100 1010 S:2 EA1:6
+TRAP,          0100 1110 0100 Vector:4
+LINK,          0100 1110 0101 0 An:3
+UNLK,          0100 1110 0101 1 An:3
+MOVE USP,      0100 1110 0110 D:1 An:3
+RESET,         0100 1110 0111 0000
+NOP,           0100 1110 0111 0001
+STOP,          0100 1110 0111 0010
+RTE,           0100 1110 0111 0011
+RTS,           0100 1110 0111 0101
+TRAPV,         0100 1110 0111 0110
+RTR,           0100 1110 0111 0111
+JSR,           0100 1110 10 EA1:6
+JMP,           0100 1110 11 EA1:6
+MOVEM,         0100 1 D:1 001 S:1 EA1:6
+LEA,           0100 An:3 111 EA1:6
+CHK,           0100 Dn:3 110 EA1:6
+ADDQ,          0101 Data:3 0 S:2 EA1:6
+DBcc,          0101 Cond:4 11 001 Dn:3
+Scc,           0101 Cond:4 11 EA1:6
+SUBQ,          0101 Data:3 1 S:2 EA1:6
+BSR,           0110 0001 Disp:8
+Bcc,           0110 Cond:4 Disp:8
+MOVEQ,         0111 Dn:3 0 Data:8
+DIVU,          1000 Dn:3 011 EA1:6
+DIVS,          1000 Dn:3 111 EA1:6
+SBCD,          1000 Xn:3 10000 M:1 Xn:3
+OR,            1000 Dn:3 D:1 S:2 EA1:6
+SUBA,          1001 An:3 S:1 11 EA1:6
+SUBX,          1001 Dn:3 1 S:2 00 M:1 Xn:3
+SUB,           1001 Dn:3 D:1 S:2 EA1:6
+CMPA,          1011 An:3 S:1 11 EA1:6
+CMPM,          1011 An:3 1 S:2 001 An:3
+EOR,           1011 Dn:3 1 S:2 EA1:6
+CMP,           1011 Dn:3 0 S:2 EA1:6
+MULU,          1100 Dn:3 011 EA1:6
+MULS,          1100 Dn:3 111 EA1:6
+ABCD,          1100 Dn2:3 10000 0 Dn:3
+ABCD,          1100 An2:3 10000 1 An:3
+EXG,           1100 Dn2:3 101000 Dn:3
+EXG,           1100 An2:3 101001 An:3
+EXG,           1100 Dn2:3 110001 An:3
+AND,           1100 Dn:3 D:1 S:2 EA1:6
+ADDA,          1101 An:3 S:1 11 EA1:6
+ADDX,          1101 Xn:3 1 S:2 00 M:1 Xn:3
+ADD,           1101 Dn:3 D:1 S:2 EA1:6
+ASR,           1110 0000 11 EA1:6
+ASL,           1110 0001 11 EA1:6
+LSR,           1110 0010 11 EA1:6
+LSL,           1110 0011 11 EA1:6
+ROXR,          1110 0100 11 EA1:6
+ROXL,          1110 0101 11 EA1:6
+ROR,           1110 0110 11 EA1:6
+ROL,           1110 0111 11 EA1:6
+ASR,           1110 Data:3 0 S:2 000 Dn:3
+ASR,           1110 Dn2:3  0 S:2 100 Dn:3
+ASL,           1110 Data:3 1 S:2 000 Dn:3
+ASL,           1110 Dn2:3  1 S:2 100 Dn:3
+LSR,           1110 Data:3 0 S:2 001 Dn:3
+LSR,           1110 Dn2:3  0 S:2 101 Dn:3
+LSL,           1110 Data:3 1 S:2 001 Dn:3
+LSL,           1110 Dn2:3  1 S:2 101 Dn:3
+ROXR,          1110 Data:3 0 S:2 010 Dn:3
+ROXR,          1110 Dn2:3  0 S:2 110 Dn:3
+ROXL,          1110 Data:3 1 S:2 010 Dn:3
+ROXL,          1110 Dn2:3  1 S:2 110 Dn:3
+ROR,           1110 Data:3 0 S:2 011 Dn:3
+ROR,           1110 Dn2:3  0 S:2 111 Dn:3
+ROL,           1110 Data:3 1 S:2 011 Dn:3
+ROL,           1110 Dn2:3  1 S:2 111 Dn:3

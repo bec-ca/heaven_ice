@@ -1,0 +1,65 @@
+external_package:
+  name: bee
+  url: https://github.com/bec-ca/bee/archive/refs/tags/v0.0.2.tar.gz
+
+external_package:
+  name: command
+  url: https://github.com/bec-ca/command/archive/refs/tags/v0.0.1.tar.gz
+
+external_package:
+  name: clang_format
+  url: https://github.com/bec-ca/clang_format/archive/refs/tags/v0.0.1.tar.gz
+
+external_package:
+  name: tokenizer
+  url: https://github.com/bec-ca/tokenizer/archive/refs/tags/v0.0.1.tar.gz
+
+external_package:
+  name: exc
+  url: https://github.com/bec-ca/exc/archive/refs/tags/v0.0.1.tar.gz
+
+external_package:
+  name: yasf
+  url: https://github.com/bec-ca/yasf/archive/refs/tags/v0.0.1.tar.gz
+
+external_package:
+  name: pixel
+  url: https://github.com/bec-ca/pixel/archive/refs/tags/v0.0.1.tar.gz
+
+external_package:
+  name: chunk_file
+  url: https://github.com/bec-ca/chunk_file/archive/refs/tags/v0.0.1.tar.gz
+
+external_package:
+  name: sdl
+  url: https://github.com/bec-ca/sdl/archive/refs/tags/v0.0.1.tar.gz
+
+profile:
+  name: dev
+  cpp_flags:
+    -std=c++23
+    -ggdb3
+    -Og
+    -Wall
+    -Wextra
+    -D_GLIBCXX_DEBUG
+    -fsanitize=address
+    -march=native
+  ld_flags:
+    -pthread
+    -lpthread
+
+profile:
+  name: release
+  cpp_flags:
+    -std=c++23
+    -Wall
+    -Wextra
+    -O3
+    -fomit-frame-pointer
+    -flto
+    -march=native
+  ld_flags:
+    -pthread
+    -lpthread
+

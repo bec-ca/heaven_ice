@@ -1,0 +1,28 @@
+on:
+  push
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install deps
+        run: |
+            wget https://apt.llvm.org/llvm.sh
+            chmod +x llvm.sh
+            sudo ./llvm.sh 18
+            sudo apt-get install -y clang-format-18 clang-18
+
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+            path: build
+            key: build-${{ runner.os }}-${{ github.run_id }}
+            restore-keys: |
+                build-${{ runner.os }}-
+
+      - name: Run tests
+        run: ./ci.sh
+        shell: bash

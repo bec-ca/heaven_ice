@@ -1,0 +1,541 @@
+cpp_library:
+  name: addr
+  sources: addr.cpp
+  headers: addr.hpp
+  libs:
+    /bee/format
+    /bee/or_error
+    register_id
+    size_kind
+    types
+
+cpp_library:
+  name: addr_mode
+  sources: addr_mode.cpp
+  headers: addr_mode.hpp
+  libs:
+    /bee/format
+    /bee/hex
+    magic_constants
+    register_id
+    size_kind
+    types
+
+cpp_library:
+  name: binary
+  sources: binary.cpp
+  headers: binary.hpp
+  libs: types
+
+cpp_library:
+  name: bit_manip
+  headers: bit_manip.hpp
+  libs:
+    /bee/format
+    types
+
+cpp_test:
+  name: bit_manip_test
+  sources: bit_manip_test.cpp
+  libs:
+    /bee/testing
+    bit_manip
+  output: bit_manip_test.out
+
+cpp_library:
+  name: condition
+  sources: condition.cpp
+  headers: condition.hpp
+  libs: /bee/error
+
+cpp_library:
+  name: control_key
+  sources: control_key.cpp
+  headers: control_key.hpp
+  libs: /yasf/of_stringable_mixin
+
+cpp_library:
+  name: controller
+  sources: controller.cpp
+  headers: controller.hpp
+  libs:
+    /bee/print
+    control_key
+    io_intf
+    magic_constants
+
+cpp_library:
+  name: dir
+  sources: dir.cpp
+  headers: dir.hpp
+  libs: /bee/or_error
+
+cpp_library:
+  name: disasm
+  sources: disasm.cpp
+  headers: disasm.hpp
+  libs:
+    /bee/format
+    /bee/or_error
+    /bee/print
+    /bee/string_util
+    addr
+    addr_mode
+    binary
+    condition
+    dir
+    hex_view
+    inst_enum
+    instruction
+    io_intf
+    memory
+    opcode_decoder
+    register_id
+    register_list
+    rom_reader
+
+cpp_library:
+  name: display_ffmpeg
+  sources: display_ffmpeg.cpp
+  headers: display_ffmpeg.hpp
+  libs:
+    /bee/file_path
+    /bee/filesystem
+    /bee/format
+    /bee/sub_process
+    display_intf
+
+cpp_library:
+  name: display_hash
+  sources: display_hash.cpp
+  headers: display_hash.hpp
+  libs:
+    /bee/print
+    /bee/simple_checksum
+    display_intf
+
+cpp_library:
+  name: display_intf
+  sources: display_intf.cpp
+  headers: display_intf.hpp
+  libs:
+    /pixel/image
+    /sdl/event
+    input_event
+
+cpp_library:
+  name: display_pnm
+  sources: display_pnm.cpp
+  headers: display_pnm.hpp
+  libs:
+    /bee/file_path
+    /bee/filesystem
+    /bee/format
+    display_intf
+
+cpp_library:
+  name: display_sdl
+  sources: display_sdl.cpp
+  headers: display_sdl.hpp
+  libs:
+    /bee/file_path
+    /bee/format
+    /bee/or_error
+    /bee/print
+    /sdl/event
+    /sdl/renderer
+    /sdl/sdl_context
+    /sdl/window
+    controller
+    display_intf
+    exceptions
+    input_event
+
+cpp_library:
+  name: emulate
+  sources: emulate.cpp
+  headers: emulate.hpp
+  libs:
+    /bee/file_path
+    /bee/file_reader
+    /bee/file_writer
+    /bee/or_error
+    /bee/print
+    disasm
+    inst_enum
+    inst_impls
+    instruction
+    machine
+    magic_constants
+    save_state
+
+cpp_library:
+  name: exceptions
+  sources: exceptions.cpp
+  headers: exceptions.hpp
+
+cpp_library:
+  name: generated
+  sources: generated.cpp
+  headers: generated.hpp
+  libs:
+    /bee/print
+    generated_intf
+    inst_impls
+    magic_constants
+    manual_functions
+
+cpp_library:
+  name: generated_intf
+  headers: generated_intf.hpp
+  libs: types
+
+cpp_library:
+  name: globals
+  sources: globals.cpp
+  headers: globals.hpp
+  libs:
+    /bee/bytes
+    /bee/file_path
+    /bee/filesystem
+    /bee/print
+    /bee/time
+    /chunk_file/chunk_file
+    /sdl/key_code
+    /yasf/cof
+    controller
+    display_ffmpeg
+    display_hash
+    display_pnm
+    display_sdl
+    exceptions
+    generated_intf
+    input_event
+    io
+    io_intf
+    magic_constants
+    memory
+    registers
+    save_state
+    status_register
+    types
+    vdp
+
+cpp_library:
+  name: header
+  sources: header.cpp
+  headers: header.hpp
+  libs:
+    /bee/format
+    /bee/print
+
+cpp_binary:
+  name: heaven_ice
+  libs: heaven_ice_main
+
+cpp_library:
+  name: heaven_ice_main
+  sources: heaven_ice_main.cpp
+  libs:
+    /bee/file_path
+    /bee/file_reader
+    /bee/file_writer
+    /bee/or_error
+    /bee/print
+    /command/command_builder
+    /command/file_path
+    /command/group_builder
+    disasm
+    emulate
+    exceptions
+    generated
+    globals
+    manual_functions
+    parse_spec
+    to_cpp
+
+cpp_library:
+  name: hex_view
+  sources: hex_view.cpp
+  headers: hex_view.hpp
+  libs:
+    /bee/format
+    /bee/print
+    types
+
+cpp_library:
+  name: input_event
+  sources: input_event.cpp
+  headers: input_event.hpp
+  libs:
+    /bee/format
+    /yasf/of_stringable_mixin
+    control_key
+
+cpp_library:
+  name: inst_enum
+  sources: inst_enum.cpp
+  headers: inst_enum.hpp
+  libs: /bee/or_error
+
+cpp_library:
+  name: inst_impls
+  headers: inst_impls.hpp
+  libs:
+    bit_manip
+    globals
+    size_kind
+    types
+
+cpp_test:
+  name: inst_impls_test
+  sources: inst_impls_test.cpp
+  libs:
+    /bee/testing
+    inst_impls
+  output: inst_impls_test.out
+
+cpp_library:
+  name: instruction
+  sources: instruction.cpp
+  headers: instruction.hpp
+  libs:
+    addr_mode
+    condition
+    inst_enum
+    register_list
+    size_kind
+    types
+
+cpp_library:
+  name: instruction_field
+  sources: instruction_field.cpp
+  headers: instruction_field.hpp
+  libs: /bee/or_error
+
+cpp_library:
+  name: instruction_spec
+  sources: instruction_spec.cpp
+  headers: instruction_spec.hpp
+  libs:
+    /bee/format
+    /bee/format_vector
+    condition
+    inst_enum
+    instruction_field
+    register_id
+    size_kind
+    types
+
+cpp_library:
+  name: io
+  sources: io.cpp
+  headers: io.hpp
+  libs:
+    /bee/print
+    io_intf
+    magic_constants
+    types
+
+cpp_library:
+  name: io_intf
+  sources: io_intf.cpp
+  headers: io_intf.hpp
+  libs:
+    /bee/reader
+    /bee/writer
+    size_kind
+    types
+
+cpp_library:
+  name: machine
+  sources: machine.cpp
+  headers: machine.hpp
+  libs:
+    /bee/format
+    /bee/print
+    addr
+    addr_mode
+    condition
+    globals
+    size_kind
+    types
+
+cpp_library:
+  name: magic_constants
+  sources: magic_constants.cpp
+  headers: magic_constants.hpp
+  libs: types
+
+cpp_library:
+  name: manual_functions
+  sources: manual_functions.cpp
+  headers: manual_functions.hpp
+  libs:
+    /bee/print
+    generated_intf
+    inst_impls
+    magic_constants
+    types
+
+cpp_library:
+  name: memory
+  sources: memory.cpp
+  headers: memory.hpp
+  libs:
+    io_intf
+    magic_constants
+    size_kind
+    types
+
+cpp_library:
+  name: opcode_decoder
+  sources: opcode_decoder.cpp
+  headers: opcode_decoder.hpp
+  libs:
+    /bee/file_path
+    instruction_spec
+    parse_spec
+
+cpp_library:
+  name: parse_spec
+  sources: parse_spec.cpp
+  headers: parse_spec.hpp
+  libs:
+    /bee/file_path
+    /bee/file_reader
+    /bee/format_vector
+    /bee/or_error
+    /bee/print
+    /bee/string_util
+    /command/cmd
+    /command/command_builder
+    /command/file_path
+    instruction_field
+    instruction_spec
+    types
+
+cpp_library:
+  name: register_id
+  sources: register_id.cpp
+  headers: register_id.hpp
+  libs:
+    /bee/format
+    /bee/or_error
+
+cpp_library:
+  name: register_list
+  sources: register_list.cpp
+  headers: register_list.hpp
+  libs:
+    /bee/string_util
+    register_id
+    types
+
+cpp_library:
+  name: registers
+  headers: registers.hpp
+  libs:
+    size_kind
+    types
+
+cpp_library:
+  name: rom_reader
+  sources: rom_reader.cpp
+  headers: rom_reader.hpp
+  libs:
+    /bee/or_error
+    addr_mode
+    bit_manip
+    io_intf
+    register_id
+    size_kind
+    types
+
+cpp_library:
+  name: save_state
+  headers: save_state.hpp
+  libs:
+    /bee/reader
+    /bee/writer
+
+cpp_library:
+  name: size_kind
+  sources: size_kind.cpp
+  headers: size_kind.hpp
+  libs:
+    /bee/concepts
+    /bee/or_error
+    types
+
+cpp_test:
+  name: size_kind_test
+  sources: size_kind_test.cpp
+  libs:
+    /bee/testing
+    size_kind
+  output: size_kind_test.out
+
+cpp_library:
+  name: status_register
+  sources: status_register.cpp
+  headers: status_register.hpp
+  libs:
+    /bee/format
+    /bee/or_error
+    condition
+
+cpp_library:
+  name: to_cpp
+  sources: to_cpp.cpp
+  headers: to_cpp.hpp
+  libs:
+    /bee/format_vector
+    /bee/or_error
+    /bee/print
+    /bee/sort
+    /bee/string_util
+    addr_mode
+    condition
+    disasm
+    instruction
+    magic_constants
+    memory
+    register_id
+
+cpp_library:
+  name: types
+  headers: types.hpp
+
+cpp_library:
+  name: vdp
+  sources: vdp.cpp
+  headers: vdp.hpp
+  libs:
+    /bee/format
+    /bee/print
+    /pixel/image
+    bit_manip
+    io_intf
+    magic_constants
+    save_state
+    types
+    vdp_rw
+    vdp_target
+
+cpp_library:
+  name: vdp_rw
+  sources: vdp_rw.cpp
+  headers: vdp_rw.hpp
+  libs:
+    /bee/or_error
+    types
+
+cpp_library:
+  name: vdp_target
+  sources: vdp_target.cpp
+  headers: vdp_target.hpp
+  libs:
+    /bee/or_error
+    types
+
