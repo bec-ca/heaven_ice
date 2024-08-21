@@ -37,5 +37,4 @@ if ! [ -f $MELLOW ]; then
   build_bootstrap
 fi
 
-make fetch
 PROFILE=release make
